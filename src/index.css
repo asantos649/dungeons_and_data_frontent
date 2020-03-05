@@ -11,3 +11,48 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.characterForm{
+  display: flex;
+  flex-direction: row;
+}
+
+.leftSideForm{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width:35%;
+  border-style: none;
+  border-right-style: solid;
+  border-right-width: 2px;
+  height: 100vh;
+}
+.rightSideForm{
+  height: 100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.coreStats{
+  display: flex;
+  flex-direction: row;
+}
+
+.charStats{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.topList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.bottomList{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
