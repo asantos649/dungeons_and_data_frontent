@@ -4,6 +4,16 @@
 
 #alignment-grid {
   display: grid;
+  position: relative;
   grid-template-columns: repeat(3, 1fr);
-  border: solid black 2px;
+  border: solid black 1px;
+  width: 30em;
+  margin-left: 50%;
+  right: 15em;
+
+  div {
+    border: solid black 1px;
+    cursor: pointer;
+  }
+
 }
