@@ -10,6 +10,7 @@ const RightSideForm = ({character, setCharacter}) => {
   // Method to update a character's stat
   const updateCharacter = (key, value) => setCharacter({...character, [key]: value})
 
+  // Method specifically for update character alignment
   const updateCharacterAlignment = (lawfulChaotic, goodEvil) => setCharacter({...character, lawfulChaotic, goodEvil})
 
   return(
