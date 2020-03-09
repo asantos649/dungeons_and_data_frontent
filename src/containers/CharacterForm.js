@@ -1,16 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import LeftSideForm from'./LeftSideForm'
 import RightSideForm from './RightSideForm'
 
-class CharacterForm extends React.Component{
-    render(){
-        return(
-            <div className = 'characterForm'>
-                <LeftSideForm/>
-                <RightSideForm/>
-            </div>
-        )
-    }
+const CharacterForm = props => {
+
+  const [character, setCharacter] = useState({
+    name: '',
+    str: 10,
+    con: 10,
+    dex: 10,
+    int: 10,
+    wis: 10,
+    cha: 10,
+    lawfulChaotic: 'lawful',
+    goodEvil: 'good',
+    class: '',
+    race: '',
+    equipment: '',
+    attacks: '',
+    abilitiesSpells: '',
+    proficiencies: [],
+    status: 'alive',
+    flaws: ''
+  })
+
+  return(
+      <div className = 'characterForm'>
+          <LeftSideForm {...{character, setCharacter}}/>
+          <RightSideForm {...{character, setCharacter}}/>
+      </div>
+  )
+
 }
 
 export default CharacterForm

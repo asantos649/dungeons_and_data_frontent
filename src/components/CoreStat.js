@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function CoreStat(props){
-    return(
-        <label> {props.stat}:
-            <div className='corStatBox'>
-                <input name={`${props.stat}`}/>
-            </div>
-        </label>
-    )
+const CoreStat = ({stat, statKey, updateCharacter}) => {
+
+  // Updates character with new stat
+  const handleChange = e => updateCharacter(statKey, e.target.value)
+
+  return(
+      <label> {statKey}:
+        <input type='number' min='0' max='30' name={`statKey`} value={stat} onChange={handleChange} />
+      </label>
+  )
 }
 
 export default CoreStat
