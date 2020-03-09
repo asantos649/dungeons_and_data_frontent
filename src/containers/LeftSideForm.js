@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
-import ImageUploader from 'react-images-upload';
+import TextLine from '../components/TextLine'
+import TextBox from '../components/TextBox'
+import ListBox from '../components/ListBox'
+// import ImageUploader from 'react-images-upload';
 
 const LeftSideForm = ({setCharacter, character}) => {
 
@@ -15,25 +18,36 @@ const LeftSideForm = ({setCharacter, character}) => {
 	// }
   return(
       <div className = 'leftSideForm'>
-          <label id='charName'>Name:<input name='charName'/></label>
-          <label id='charClass'>Class:<input name='charClass'/></label>
-          <label id='charLevel'>Level:<input name='charLevel' type='number'/></label>
-          <label id='charRace'>Race:<input name='charRace'/></label>
-          {/*
-          <label id='charImage'>Image:
-                  <ImageUploader
-                  className='charImage'
-                  withIcon={true}
-                  buttonText='Choose images'
-                  onChange={this.onDrop}
-                  imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                  maxFileSize={5242880}
-          </label>
-          />*/}
-          <label id='charStatus'>Status:<input name='charStatus' value='alive'/></label>
-          <label id='charBio'>Bio:<textarea name='charBio' type='longText'/></label>
-          <label id='charStengths'>Stengths:<input name='charStengths'/></label>
-          <label id='charFlaws'>Flaws:<input name='charFlaws'/></label>
+
+        <TextLine {...{statKey: 'name', stat: character.name, updateCharacter}} />
+
+        <TextLine {...{statKey: 'class', stat: character.class, updateCharacter}} />
+
+        <TextLine {...{statKey: 'race', stat: character.race, updateCharacter}} />
+
+        {/* TODO: Set create dropdown form field for levels */}
+        <label id='charLevel'>Level:<input name='charLevel' type='number'/></label>
+
+        <TextBox {...{statKey: 'bio', stat: character.bio, updateCharacter, title: 'Character Bio'}} />
+
+        {/* TODO: Set create dropdown form field for status */}
+        <label id='charStatus'>Status:<input name='charStatus' value='alive'/></label>
+
+        <ListBox {...{updateCharacter, statKey: 'strengths', stat: character.strengths}} />
+
+        <ListBox {...{updateCharacter, statKey: 'flaws', stat: character.flaws}} />
+        {/*
+        <label id='charImage'>Image:
+                <ImageUploader
+                className='charImage'
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={this.onDrop}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+        </label>
+        />*/}
+
       </div>
   )
 }

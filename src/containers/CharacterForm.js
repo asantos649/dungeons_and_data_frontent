@@ -21,7 +21,9 @@ const CharacterForm = props => {
     abilitiesSpells: [],
     proficiencies: [],
     status: 'alive',
-    flaws: ''
+    bio: '',
+    strengths: [],
+    flaws: []
   })
 
   return(
