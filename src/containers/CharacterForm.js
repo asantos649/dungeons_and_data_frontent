@@ -16,9 +16,9 @@ const CharacterForm = props => {
     goodEvil: 'good',
     class: '',
     race: '',
-    equipment: '',
-    attacks: '',
-    abilitiesSpells: '',
+    equipment: [],
+    attacks: [],
+    abilitiesSpells: [],
     proficiencies: [],
     status: 'alive',
     flaws: ''

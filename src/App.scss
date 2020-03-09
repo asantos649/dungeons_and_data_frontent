@@ -1,0 +1,9 @@
+.App {
+  text-align: center;
+}
+
+#alignment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: solid black 2px;
+}

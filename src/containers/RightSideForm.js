@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CoreStat from '../components/CoreStat'
-import CharStat from '../components/CharStat'
-import TextBox from '../components/TextBox'
+import AlignmentGrid from '../components/AlignmentGrid'
+import ListBox from '../components/ListBox'
+// import CharStat from '../components/CharStat'
+// import TextBox from '../components/TextBox'
 
 const RightSideForm = ({character, setCharacter}) => {
 
   // Method to update a character's stat
   const updateCharacter = (key, value) => setCharacter({...character, [key]: value})
+
+  const updateCharacterAlignment = (lawfulChaotic, goodEvil) => setCharacter({...character, lawfulChaotic, goodEvil})
 
   return(
     <div className = 'rightSideForm'>
@@ -21,17 +25,17 @@ const RightSideForm = ({character, setCharacter}) => {
         </div>
 
         <div className='alignmentStats'>
-          // alignment goes here
+          <AlignmentGrid {...{lawfulChaotic: character.lawfulChaotic, goodEvil: character.goodEvil, updateCharacterAlignment}}/>
         </div>
 
         <div className='topList'>
-            <TextBox {...{statKey: 'equipment', stat: character.equipment, updateCharacter}}/>
-            <TextBox {...{statKey: 'attacks', stat: character.attacks, updateCharacter}} />
+            <ListBox {...{statKey: 'equipment', stat: character.equipment, updateCharacter}}/>
+            <ListBox {...{statKey: 'attacks', stat: character.attacks, updateCharacter}} />
         </div>
 
         <div className='bottomList'>
-            <TextBox {...{title: 'Abilities / Spells', statKey: 'abilitiesSpells', stat: character.abilitiesSpells, updateCharacter}} />
-            <TextBox {...{statKey: 'proficiencies', stat: character.proficiencies, updateCharacter}} />
+            <ListBox {...{title: 'Abilities / Spells', statKey: 'abilitiesSpells', stat: character.abilitiesSpells, updateCharacter}} />
+            <ListBox {...{statKey: 'proficiencies', stat: character.proficiencies, updateCharacter}} />
         </div>
 
     </div>
