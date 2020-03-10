@@ -10,14 +10,6 @@ const LeftSideForm = ({setCharacter, character}) => {
   // Method to update a character's stat
   const updateCharacter = (key, value) => setCharacter({...character, [key]: value})
 
-  // const [pictures, setPictures] = useState([])
-
-  //   onDrop = (pictureFiles, pictureDataURLs) => {
-	// 	this.setState({
-  //           pictures: this.state.pictures.concat(pictureFiles),
-  //       });
-	// }
-
   return(
       <div className = 'leftSideForm'>
 
@@ -27,31 +19,40 @@ const LeftSideForm = ({setCharacter, character}) => {
 
         <TextLine {...{statKey: 'race', stat: character.race, updateCharacter}} />
 
-        {/* TODO: Set create dropdown form field for levels */}
         <DropdownStat {...{statKey: 'level', stat: character.level, updateCharacter, options: [...Array(21).keys()].slice(1)}} />
 
         <TextBox {...{statKey: 'bio', stat: character.bio, updateCharacter, title: 'Character Bio'}} />
 
-        {/* TODO: Set create dropdown form field for status */}
-        <label id='charStatus'>Status:<input name='charStatus' value='alive'/></label>
+        <DropdownStat {...{statKey: 'status', stat: character.status, updateCharacter, options: ['alive', 'dead', 'retired']}} />
 
         <ListBox {...{updateCharacter, statKey: 'strengths', stat: character.strengths}} />
 
         <ListBox {...{updateCharacter, statKey: 'flaws', stat: character.flaws}} />
-        {/*
-        <label id='charImage'>Image:
-                <ImageUploader
-                className='charImage'
-                withIcon={true}
-                buttonText='Choose images'
-                onChange={this.onDrop}
-                imgExtension={['.jpg', '.gif', '.png', '.gif']}
-                maxFileSize={5242880}
-        </label>
-        />*/}
 
       </div>
   )
 }
 
 export default LeftSideForm
+
+// Dead code for future picture selector
+
+// const [pictures, setPictures] = useState([])
+
+//   onDrop = (pictureFiles, pictureDataURLs) => {
+// 	this.setState({
+//           pictures: this.state.pictures.concat(pictureFiles),
+//       });
+// }
+
+/*
+<label id='charImage'>Image:
+        <ImageUploader
+        className='charImage'
+        withIcon={true}
+        buttonText='Choose images'
+        onChange={this.onDrop}
+        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+        maxFileSize={5242880}
+</label>
+/>*/
