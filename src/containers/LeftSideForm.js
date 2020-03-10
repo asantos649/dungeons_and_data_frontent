@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import TextLine from '../components/TextLine'
 import TextBox from '../components/TextBox'
 import ListBox from '../components/ListBox'
+import DropdownStat from '../components/DropdownStat'
 // import ImageUploader from 'react-images-upload';
 
 const LeftSideForm = ({setCharacter, character}) => {
@@ -9,13 +10,14 @@ const LeftSideForm = ({setCharacter, character}) => {
   // Method to update a character's stat
   const updateCharacter = (key, value) => setCharacter({...character, [key]: value})
 
-  const [pictures, setPictures] = useState([])
+  // const [pictures, setPictures] = useState([])
 
   //   onDrop = (pictureFiles, pictureDataURLs) => {
 	// 	this.setState({
   //           pictures: this.state.pictures.concat(pictureFiles),
   //       });
 	// }
+
   return(
       <div className = 'leftSideForm'>
 
@@ -26,7 +28,7 @@ const LeftSideForm = ({setCharacter, character}) => {
         <TextLine {...{statKey: 'race', stat: character.race, updateCharacter}} />
 
         {/* TODO: Set create dropdown form field for levels */}
-        <label id='charLevel'>Level:<input name='charLevel' type='number'/></label>
+        <DropdownStat {...{statKey: 'level', stat: character.level, updateCharacter, options: [...Array(21).keys()].slice(1)}} />
 
         <TextBox {...{statKey: 'bio', stat: character.bio, updateCharacter, title: 'Character Bio'}} />
 

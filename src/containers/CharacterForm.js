@@ -12,6 +12,7 @@ const CharacterForm = props => {
     int: 10,
     wis: 10,
     cha: 10,
+    level: 1,
     lawfulChaotic: 'lawful',
     goodEvil: 'good',
     class: '',
